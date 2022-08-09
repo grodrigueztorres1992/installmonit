@@ -102,9 +102,10 @@ case $opcion in
 			Crear=`touch /etc/monit/conf-enabled/snmp`
 			PERMISOS=`chmod 777 /etc/monit/conf-enabled/snmp`
             PIDSNMP=`ps aux | pgrep snmp > /run/snmpd.pid`
-            Conf=`echo '# SNMP configuration \ncheck process snmpd with pidfile /run/snmpd.pid
-    \nstart program = "/bin/systemctl start snmpd" with timeout 60 seconds
-    \nstop program  = "/bin/systemctl stop snmpd"' > /etc/monit/conf-enabled/snmp`
+            Conf=`echo '# SNMP configuration 
+            check process snmpd with pidfile /run/snmpd.pid
+    start program = "/bin/systemctl start snmpd" with timeout 60 seconds
+    stop program  = "/bin/systemctl stop snmpd"' > /etc/monit/conf-enabled/snmp`
 			RESTART=`monit reload`
             echo $Crear
 			echo $PERMISOS
@@ -123,9 +124,10 @@ case $opcion in
 		function ASTERISK () {
 			Crear=`touch /etc/monit/conf-enabled/asterisk`
 			PERMISOS=`chmod 777 /etc/monit/conf-enabled/asterisk`
-            Conf=`echo '# ASTERISK configuration \ncheck process asterisk with pidfile /run/asterisk/asterisk.pid
-    \nstart program = "/bin/systemctl start asterisk" with timeout 60 seconds
-    \nstop program  = "/bin/systemctl stop asterisk"' > /etc/monit/conf-enabled/asterisk`
+            Conf=`echo '# ASTERISK configuration 
+            check process asterisk with pidfile /run/asterisk/asterisk.pid
+            start program = "/bin/systemctl start asterisk" with timeout 60 seconds
+            stop program  = "/bin/systemctl stop asterisk"' > /etc/monit/conf-enabled/asterisk`
 			RESTART=`monit reload`
             echo $Crear
 			echo $PERMISOS
@@ -143,9 +145,10 @@ case $opcion in
 		function MYSQL () {
 			Crear=`touch /etc/monit/conf-enabled/mysql`
 			PERMISOS=`chmod 777 /etc/monit/conf-enabled/mysql`
-            Conf=`echo '# MYSQL configuration \ncheck process asterisk with pidfile /run/mariadb/mariadb.pid
-    \nstart program = "/bin/systemctl start mysqld" with timeout 60 seconds
-    \nstop program  = "/bin/systemctl stop mysqld"' > /etc/monit/conf-enabled/mysql`
+            Conf=`echo '# MYSQL configuration 
+            check process asterisk with pidfile /run/mariadb/mariadb.pid
+            start program = "/bin/systemctl start mysqld" with timeout 60 seconds
+            stop program  = "/bin/systemctl stop mysqld"' > /etc/monit/conf-enabled/mysql`
 			RESTART=`monit reload`
             echo $Crear
 			echo $PERMISOS
