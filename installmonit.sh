@@ -146,7 +146,7 @@ case $opcion in
 			Crear=`touch /etc/monit/conf-enabled/mysql`
 			PERMISOS=`chmod 777 /etc/monit/conf-enabled/mysql`
             Conf=`echo '# MYSQL configuration 
-            check process asterisk with pidfile /run/mariadb/mariadb.pid
+            check process mysqld with pidfile /run/mariadb/mariadb.pid
             start program = "/bin/systemctl start mysqld" with timeout 60 seconds
             stop program  = "/bin/systemctl stop mysqld"' > /etc/monit/conf-enabled/mysql`
 			RESTART=`monit reload`
